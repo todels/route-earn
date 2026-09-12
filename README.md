@@ -31,12 +31,12 @@ The page keeps Route's existing frame: top band (theme toggle / nav pills / wall
 
 ## Visual hierarchy (in order)
 
-1. **Position value** in USDG. Largest number on the page, inside the tinted "shell" block that the swap card uses.
-2. **Net deposited / earnings / current APY** as a metric row inside the hero.
+1. **Position value** in USDG. Largest number on the page, inside the tinted "shell" block the swap card uses. Also the withdrawable amount, so it is shown once.
+2. **Vault APY**, its own block, second-largest number.
 3. **Deposit** (dark CTA) and **Withdraw** (secondary), same button language as `connect wallet` on the swap.
-4. **Vault APY** and **available to withdraw** as their own blocks, so they can be scanned without reading the hero.
-5. **Vault list** with rating, TVL and APY. Selected vault uses the same green "selected" treatment as a selected route.
-6. **History and provenance** on the bottom row. Nothing outside the brief.
+4. **Other USDG vaults** with rating, TVL and APY. Selected vault uses the same green "selected" treatment as a selected route.
+5. Net deposited and earnings as a metric row inside the hero.
+6. History and provenance (Morpho × Steakhouse) on the bottom row, deliberately smaller.
 
 ## Brief coverage
 
