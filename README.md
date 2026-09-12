@@ -3,7 +3,8 @@
 Mid-fidelity wireframe for **Route Earn**: USDG vaults on [route.fun](https://route.fun), powered by Morpho × Steakhouse.
 Light mode only. Single static file, no build step.
 
-**Open:** `index.html` in a browser (or serve the folder with any static server).
+**Live:** https://todels.github.io/route-earn/  
+**Local:** open `index.html` in a browser.
 
 ## Screens
 
@@ -23,7 +24,7 @@ The page keeps Route's existing frame: top band (theme toggle / nav pills / wall
 │   your position (hero)    ├─────────────┴─────────────┤
 │   value · deposited ·     │  USDG vaults (Steakhouse) │
 │   earnings · APY · CTAs   │  Prime / High Yield / Term│
-├───────────────────┬───────┴─────┬─────────────────────┤
+├─────────────────────────────┬─┴───────────────────────────┤
 │ transaction hist. │ powered by  │  how it works       │
 └───────────────────┴─────────────┴─────────────────────┘
 ```
@@ -35,7 +36,7 @@ The page keeps Route's existing frame: top band (theme toggle / nav pills / wall
 3. **Deposit** (dark CTA) and **Withdraw** (secondary), same button language as `connect wallet` on the swap.
 4. **Vault APY** and **available to withdraw** as their own blocks, so they can be scanned without reading the hero.
 5. **Vault list** with rating, TVL and APY. Selected vault uses the same green "selected" treatment as a selected route.
-6. **History, provenance, explainer** on the bottom row.
+6. **History and provenance** on the bottom row. Nothing outside the brief.
 
 ## Brief coverage
 

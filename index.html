@@ -60,9 +60,9 @@
   .band-bottom .block{padding:0 22px;display:flex;align-items:flex-end;padding-bottom:22px;gap:22px;font-size:12px;color:var(--muted-foreground)}
   .band-bottom .stat b{color:var(--foreground);font-weight:600}
   .theme{width:34px;height:34px;border-radius:50%;background:var(--muted);display:grid;place-items:center;color:var(--foreground)}
-  .nav-pills{display:inline-flex;padding:4px;border-radius:80px;background:var(--shortcut);gap:2px;margin:0 auto}
-  .nav-pills a{padding:8px 14px;border-radius:256px;font-size:14px;color:var(--muted-foreground);display:flex;align-items:center;gap:6px}
-  .nav-pills a.on{background:var(--background);color:var(--foreground)}
+  .nav{display:flex;gap:22px;margin:0 auto;align-items:center}
+  .nav a{font-size:14px;color:var(--muted-foreground);padding:6px 0}
+  .nav a.on{color:var(--foreground);font-weight:500;border-bottom:1.5px solid var(--foreground)}
   .wallet{margin-left:auto;display:inline-flex;align-items:center;gap:8px;padding:6px 12px 6px 8px;border-radius:999px;background:var(--selected);color:var(--signal);font-size:13px;font-weight:500}
   .wallet i{width:18px;height:18px;border-radius:50%;background:linear-gradient(135deg,#9abc87,#354f32)}
 
@@ -75,7 +75,7 @@
   .lbl .hint{width:14px;height:14px;border-radius:50%;border:1px solid var(--wire);font-size:9px;display:inline-grid;place-items:center;color:var(--muted-foreground)}
   .head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
   .big{font-weight:500;letter-spacing:-.02em;line-height:1}
-  .big.xl{font-size:56px}
+  .big.xl{font-size:64px}
   .big.lg{font-size:36px}
   .big.md{font-size:26px}
   .unit{font-size:.4em;color:var(--muted-foreground);font-weight:500;margin-left:.2em;letter-spacing:0}
@@ -102,7 +102,6 @@
   .btn.ghost{background:transparent;color:var(--muted-foreground);border-color:var(--line);height:40px;border-radius:14px;font-size:13px}
   .btn svg{width:14px;height:14px;flex:none}
   .btn-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:auto;padding-top:16px}
-  .hero-chart + .btn-row{margin-top:0}
   .pillbar{display:inline-flex;padding:4px;border-radius:80px;background:var(--shortcut);gap:2px}
   .pillbar span{padding:7px 13px;border-radius:256px;font-size:14px;color:var(--muted-foreground)}
   .pillbar span.on{background:var(--background);color:var(--foreground)}
@@ -110,10 +109,10 @@
   .mini-pills span{font-size:12px;color:var(--muted-foreground);padding:4px 8px;border-radius:8px;background:var(--muted)}
 
   /* metric row */
-  .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:22px;border-top:1px solid rgba(37,38,32,.08)}
+  .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:auto;border-top:1px solid rgba(37,38,32,.08)}
   .metrics > div{padding:14px 16px 0 0}
   .metrics > div + div{border-left:1px solid rgba(37,38,32,.08);padding-left:16px}
-  .metrics .v{font-size:18px;font-weight:500;margin-top:5px;letter-spacing:-.01em}
+  .metrics .v{font-size:22px;font-weight:500;margin-top:5px;letter-spacing:-.01em}
   .metrics .s{font-size:12px;color:var(--muted-foreground);margin-top:3px}
 
   /* vault list */
@@ -121,7 +120,10 @@
   .vault{display:grid;grid-template-columns:auto 1fr auto auto auto;align-items:center;gap:14px;padding:11px 14px;border-radius:16px;background:var(--surface);border:1px solid #e3e4db}
   .vault.on{background:var(--selected);border-color:#b8cfae;box-shadow:0 0 0 3px rgba(86,123,81,.08)}
   .vault .nm{font-weight:600;font-size:14px;display:flex;align-items:center;gap:8px}
-  .vault .meta{font-size:12px;color:var(--muted-foreground);margin-top:2px}
+  .vault .meta{font-size:12px;color:var(--muted-foreground);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .vault .nm{white-space:nowrap}
+  .vpick .vault{grid-template-columns:auto 1fr auto auto;gap:10px}
+  .vpick .tvl{display:none}
   .vault .apy{font-size:20px;font-weight:500;letter-spacing:-.01em;text-align:right}
   .vault .apy small{display:block;font-size:11px;color:var(--muted-foreground);font-weight:400;margin-top:2px}
   .vault .tvl{font-size:13px;color:var(--muted-foreground);text-align:right;min-width:88px}
@@ -148,9 +150,6 @@
 
   /* sparkline */
   .spark{width:100%;height:56px;margin-top:auto}
-  .hero-chart{margin-top:auto;padding-top:14px}
-  .hero-chart .lbl{margin-bottom:6px;justify-content:space-between}
-  .hero-chart svg{width:100%;height:64px;display:block}
   .proj{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
   .proj div{background:var(--surface);border:1px solid #e3e4db;border-radius:14px;padding:10px 12px;font-size:12px;color:var(--muted-foreground)}
   .proj b{display:block;font-size:15px;font-weight:500;color:var(--signal);margin-top:3px;letter-spacing:-.01em}
@@ -200,25 +199,22 @@
   .s1 .apy{grid-column:7/10;grid-row:1}
   .s1 .avail{grid-column:10/13;grid-row:1}
   .s1 .vlist{grid-column:7/13;grid-row:2}
-  .s1 .hist{grid-column:1/8;grid-row:3}
-  .s1 .about{grid-column:8/10;grid-row:3}
-  .s1 .how{grid-column:10/13;grid-row:3}
-  .s1 .bento{grid-template-rows:220px 290px 290px}
+  .s1 .hist{grid-column:1/9;grid-row:3}
+  .s1 .about{grid-column:9/13;grid-row:3}
+  .s1 .bento{grid-template-rows:200px 275px 270px}
 
   .s2 .summary{grid-column:1/4;grid-row:1/3}
   .s2 .action{grid-column:4/9;grid-row:1/3}
-  .s2 .path{grid-column:9/13;grid-row:1}
-  .s2 .vinfo{grid-column:9/13;grid-row:2}
-  .s2 .bento{grid-template-rows:330px 240px}
+  .s2 .vpick{grid-column:9/13;grid-row:1/3}
+  .s2 .bento{grid-template-rows:300px 260px}
 
   .s3 .hero{grid-column:1/7;grid-row:1/3}
   .s3 .apy{grid-column:7/10;grid-row:1}
   .s3 .avail{grid-column:10/13;grid-row:1}
   .s3 .vlist{grid-column:7/13;grid-row:2}
-  .s3 .hist{grid-column:1/8;grid-row:3}
-  .s3 .about{grid-column:8/10;grid-row:3}
-  .s3 .how{grid-column:10/13;grid-row:3}
-  .s3 .bento{grid-template-rows:220px 290px 220px}
+  .s3 .hist{grid-column:1/9;grid-row:3}
+  .s3 .about{grid-column:9/13;grid-row:3}
+  .s3 .bento{grid-template-rows:200px 275px 200px}
 
   @media (max-width:1100px){
     .band{grid-template-columns:1fr}
@@ -262,10 +258,7 @@
           </div>
         </div>
         <div class="block" style="justify-content:center">
-          <div class="nav-pills">
-            <a href="#"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 16V4m0 0L3 8m4-4 4 4M17 8v12m0 0 4-4m-4 4-4-4"/></svg>Swap</a>
-            <a href="#" class="on">Earn</a>
-          </div>
+          <div class="nav"><a href="#">swap</a><a href="#" class="on">earn</a></div>
         </div>
         <div class="block"><span class="wallet"><i></i>0x8f4c…3a1c</span></div>
       </div>
@@ -299,15 +292,6 @@
           </div>
 
 
-          <div class="hero-chart">
-            <div class="lbl"><span>position value · 90d</span><span class="num">Jun 14 → today</span></div>
-            <svg viewBox="0 0 600 64" preserveAspectRatio="none">
-              <defs><linearGradient id="g2" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#567b51" stop-opacity=".22"/><stop offset="1" stop-color="#567b51" stop-opacity="0"/></linearGradient></defs>
-              <path d="M0 58 L0 54 L110 53 L112 40 L250 38 L252 22 L420 20 L422 9 L600 6 V64 H0 Z" fill="url(#g2)"/>
-              <path d="M0 54 L110 53 L112 40 L250 38 L252 22 L420 20 L422 9 L600 6" fill="none" stroke="#567b51" stroke-width="1.6"/>
-              <circle cx="600" cy="6" r="3" fill="#354f32"/>
-            </svg>
-          </div>
           <div class="btn-row">
             <button class="btn primary">deposit USDG
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M8 7h9v9"/></svg>
@@ -372,7 +356,7 @@
 
         <!-- History -->
         <div class="blk hist">
-          <div class="head"><span class="lbl">transaction history</span><span class="mini-pills"><span style="background:var(--background);color:var(--foreground)">all</span><span>deposits</span><span>withdrawals</span><span>yield</span></span></div>
+          <div class="head"><span class="lbl">transaction history</span></div>
           <table>
             <thead><tr><th>type</th><th>date</th><th class="r">amount</th><th class="r">position after</th><th class="r">tx</th></tr></thead>
             <tbody>
@@ -392,20 +376,10 @@
             <div>protocol <b>Morpho Vaults V2</b></div>
             <div>curator <b>Steakhouse</b></div>
             <div>vault rating <b>A</b></div>
-            <div>performance fee <b>0%</b></div>
-            <div>address <b>0xbe…0f51 ↗</b></div>
+            <div>vault address <b>0xbe…0f51 ↗</b></div>
           </div>
         </div>
 
-        <!-- How it works -->
-        <div class="blk how">
-          <div class="head"><span class="lbl">how it works</span><a class="hash" href="#">docs ↗</a></div>
-          <div class="steps">
-            <div class="step"><i>1</i><div><b>deposit USDG</b>you receive vault shares in your wallet</div></div>
-            <div class="step"><i>2</i><div><b>the vault lends on Morpho</b>Steakhouse allocates to rated markets</div></div>
-            <div class="step"><i>3</i><div><b>interest accrues to your position</b>withdraw any time, subject to liquidity</div></div>
-          </div>
-        </div>
       </div>
 
       <div class="band band-bottom">
@@ -420,18 +394,18 @@
       <li><i>3</i>Deposit is the primary (dark) CTA, withdraw is secondary. Same button language as the swap.</li>
       <li><i>4</i>Earnings shows a "calculating" chip instead of a number until it can be computed reliably (see screen 03).</li>
       <li><i>5</i>Vault list uses the dotted grid from the routes panel; the active vault gets the same selected-green treatment as a selected route.</li>
-      <li><i>6</i>Bottom row is informational: history, provenance (Morpho × Steakhouse) and a 3-step explainer.</li>
+      <li><i>6</i>Bottom row: transaction history and provenance (Morpho × Steakhouse). Nothing else.</li>
     </ul>
   </section>
 
   <!-- ================= SCREEN 2 : DEPOSIT FLOW ================= -->
   <section class="screen s2" id="s2">
-    <div class="screen-label"><b>02 · Deposit</b><span>after tapping deposit. The action card mirrors the swap card 1:1; the routes panel becomes a deposit path.</span></div>
+    <div class="screen-label"><b>02 · Deposit</b><span>after tapping deposit. The action card mirrors the swap card 1:1.</span></div>
     <div class="app">
       <div class="band band-top">
         <div class="block"><div class="theme"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></div></div>
         <div class="block" style="justify-content:center">
-          <div class="nav-pills"><a href="#">Swap</a><a href="#" class="on">Earn</a></div>
+          <div class="nav"><a href="#">swap</a><a href="#" class="on">earn</a></div>
         </div>
         <div class="block"><span class="wallet"><i></i>0x8f4c…3a1c</span></div>
       </div>
@@ -481,28 +455,38 @@
           </div>
         </div>
 
-        <!-- deposit path (route-graph style) -->
-        <div class="blk path dots">
-          <div class="head"><span class="lbl">deposit path</span><span class="chip"><span class="dot"></span>simulated</span></div>
-          <div class="graph">
-            <div class="node"><span class="ic usdg">G</span><b>USDG</b>5,000</div>
-            <div class="wireline"></div>
-            <div class="gcard"><div class="t">USDG Prime <span class="chip">Selected</span></div><div class="v num">4,987.9 sUSDG</div><div class="s">Morpho Vaults V2 · Steakhouse</div></div>
-            <div class="wireline"></div>
-            <div class="node"><span class="ic route">R</span><b>position</b>35,412.18</div>
+        <!-- vault picker -->
+        <div class="blk vpick dots">
+          <div class="head">
+            <span class="lbl">deposit into <span class="chip gray">3 vaults</span></span>
+            <span class="lbl" style="gap:6px">curated by <span class="partners" style="margin:0;gap:6px"><span class="ic steak" style="width:18px;height:18px;font-size:9px">S</span><b style="color:var(--foreground);font-weight:500">Steakhouse</b></span></span>
           </div>
-        </div>
-
-        <!-- vault info -->
-        <div class="blk vinfo">
-          <div class="head"><span class="lbl">about this vault</span><span class="rating a">A</span></div>
-          <div class="kv">
-            <div>APY (7d / 30d) <b class="num">6.04% / 5.88%</b></div>
-            <div>total deposits <b class="num">12.4M USDG</b></div>
+          <div class="vaults">
+            <div class="vault on">
+              <span class="ic usdg" style="width:32px;height:32px;font-size:12px">G</span>
+              <div><div class="nm">USDG Prime <span class="chip">Selected</span></div><div class="meta">blue-chip collateral · Morpho Vaults V2</div></div>
+              <span class="rating a">A</span>
+              <div class="tvl"><b class="num">12.4M</b>TVL</div>
+              <div class="apy num">6.21%<small>APY</small></div>
+            </div>
+            <div class="vault">
+              <span class="ic usdg" style="width:32px;height:32px;font-size:12px">G</span>
+              <div><div class="nm">USDG High Yield</div><div class="meta">wider collateral range · Morpho Vaults V2</div></div>
+              <span class="rating b">BB</span>
+              <div class="tvl"><b class="num">3.1M</b>TVL</div>
+              <div class="apy num">8.05%<small>APY</small></div>
+            </div>
+            <div class="vault">
+              <span class="ic usdg" style="width:32px;height:32px;font-size:12px">G</span>
+              <div><div class="nm">USDG Term</div><div class="meta">unlevered, longer allocation · Morpho Vaults V2</div></div>
+              <span class="rating c">CC</span>
+              <div class="tvl"><b class="num">940K</b>TVL</div>
+              <div class="apy num">7.40%<small>APY</small></div>
+            </div>
+          </div>
+          <div class="kv" style="margin-top:auto;padding-top:14px;border-top:1px solid rgba(37,38,32,.08)">
             <div>available liquidity <b class="num">4.82M USDG</b></div>
-            <div>collateral <b>blue-chip only</b></div>
-            <div>curator <b>Steakhouse</b></div>
-            <div>audits · docs <b>↗</b></div>
+            <div>powered by <b>Morpho × Steakhouse</b></div>
           </div>
         </div>
       </div>
@@ -517,8 +501,7 @@
       <li><i>1</i>The action card reuses the swap card exactly: pay field, flip, receive field, dark CTA, details line. Users already know how to read it.</li>
       <li><i>2</i>Deposit / Withdraw are the Market / Limit pills. Withdraw flips the fields (sUSDG → USDG) and caps Max at available liquidity.</li>
       <li><i>3</i>Left block answers "what changes for me" (position before → after) so the user never has to compute it.</li>
-      <li><i>4</i>The routes graph becomes a deposit path: USDG → vault → position. Same wire, node and "Selected" badge as the swap.</li>
-      <li><i>5</i>Vault info is de-emphasised on the bottom right. It is available, not competing with the amount.</li>
+      <li><i>4</i>Right column is the vault picker: choosing a vault here updates the card's vault chip and the projected earnings.</li>
     </ul>
   </section>
 
@@ -529,7 +512,7 @@
       <div class="band band-top">
         <div class="block"><div class="theme"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></div></div>
         <div class="block" style="justify-content:center">
-          <div class="nav-pills"><a href="#">Swap</a><a href="#" class="on">Earn</a></div>
+          <div class="nav"><a href="#">swap</a><a href="#" class="on">earn</a></div>
         </div>
         <div class="block"><span class="wallet"><i></i>0x8f4c…3a1c</span></div>
       </div>
@@ -561,14 +544,6 @@
             </div>
           </div>
 
-          <div class="hero-chart">
-            <div class="lbl"><span>what you'd earn in a year · USDG High Yield at 8.05%</span><span>estimate, variable</span></div>
-            <div class="proj num">
-              <div>deposit 1,000<b>+80.50 USDG</b></div>
-              <div>deposit 5,000<b>+402.50 USDG</b></div>
-              <div>deposit 10,000<b>+805.00 USDG</b></div>
-            </div>
-          </div>
           <div class="btn-row">
             <button class="btn primary">deposit USDG
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M8 7h9v9"/></svg>
@@ -640,14 +615,6 @@
           </div>
         </div>
 
-        <div class="blk how">
-          <div class="head"><span class="lbl">how it works</span><a class="hash" href="#">docs ↗</a></div>
-          <div class="steps">
-            <div class="step"><i>1</i><div><b>deposit USDG</b>you receive vault shares</div></div>
-            <div class="step"><i>2</i><div><b>the vault lends on Morpho</b>allocated by Steakhouse</div></div>
-            <div class="step"><i>3</i><div><b>interest accrues</b>withdraw any time</div></div>
-          </div>
-        </div>
       </div>
 
       <div class="band band-bottom">
