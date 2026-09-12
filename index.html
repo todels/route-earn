@@ -76,7 +76,7 @@
   .head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
   .big{font-weight:500;letter-spacing:-.02em;line-height:1}
   .big.xl{font-size:64px}
-  .big.lg{font-size:36px}
+  .big.lg{font-size:40px}
   .big.md{font-size:26px}
   .unit{font-size:.4em;color:var(--muted-foreground);font-weight:500;margin-left:.2em;letter-spacing:0}
   .sub{font-size:13px;color:var(--muted-foreground);margin-top:8px}
@@ -109,7 +109,7 @@
   .mini-pills span{font-size:12px;color:var(--muted-foreground);padding:4px 8px;border-radius:8px;background:var(--muted)}
 
   /* metric row */
-  .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:auto;border-top:1px solid rgba(37,38,32,.08)}
+  .metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:0;margin-top:auto;border-top:1px solid rgba(37,38,32,.08)}
   .metrics > div{padding:14px 16px 0 0}
   .metrics > div + div{border-left:1px solid rgba(37,38,32,.08);padding-left:16px}
   .metrics .v{font-size:22px;font-weight:500;margin-top:5px;letter-spacing:-.01em}
@@ -149,13 +149,9 @@
   .tx.yld i{background:#eef2e8;color:var(--accent)}
   .hash{color:var(--muted-foreground);font-size:12px}
 
-  /* sparkline */
-  .spark{width:100%;height:56px;margin-top:auto}
   .proj{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
   .proj div{background:var(--surface);border:1px solid #e3e4db;border-radius:14px;padding:10px 12px;font-size:12px;color:var(--muted-foreground)}
   .proj b{display:block;font-size:15px;font-weight:500;color:var(--signal);margin-top:3px;letter-spacing:-.01em}
-  .bar{height:6px;border-radius:999px;background:var(--muted);overflow:hidden;margin-top:14px}
-  .bar i{display:block;height:100%;width:100%;background:var(--accent);border-radius:999px}
 
   /* action card (deposit flow) */
   .card{background:var(--background);border-radius:24px;padding:13px;box-shadow:0 4px 8px -2px rgba(0,0,0,.03),0 8px 16px -4px rgba(0,0,0,.03),0 8px 16px -4px rgba(0,0,0,.04),0 0 0 1px rgba(202,204,197,.58);display:flex;flex-direction:column;gap:8px}
@@ -197,12 +193,11 @@
 
   /* grid placements */
   .s1 .hero{grid-column:1/7;grid-row:1/3}
-  .s1 .apy{grid-column:7/10;grid-row:1}
-  .s1 .avail{grid-column:10/13;grid-row:1}
+  .s1 .apy{grid-column:7/13;grid-row:1}
   .s1 .vlist{grid-column:7/13;grid-row:2}
   .s1 .hist{grid-column:1/9;grid-row:3}
   .s1 .about{grid-column:9/13;grid-row:3}
-  .s1 .bento{grid-template-rows:200px 275px 270px}
+  .s1 .bento{grid-template-rows:170px 275px 270px}
 
   .s2 .summary{grid-column:1/4;grid-row:1/3}
   .s2 .action{grid-column:4/9;grid-row:1/3}
@@ -210,12 +205,11 @@
   .s2 .bento{grid-template-rows:300px 260px}
 
   .s3 .hero{grid-column:1/7;grid-row:1/3}
-  .s3 .apy{grid-column:7/10;grid-row:1}
-  .s3 .avail{grid-column:10/13;grid-row:1}
+  .s3 .apy{grid-column:7/13;grid-row:1}
   .s3 .vlist{grid-column:7/13;grid-row:2}
   .s3 .hist{grid-column:1/9;grid-row:3}
   .s3 .about{grid-column:9/13;grid-row:3}
-  .s3 .bento{grid-template-rows:200px 275px 200px}
+  .s3 .bento{grid-template-rows:170px 275px 200px}
 
   @media (max-width:1100px){
     .band{grid-template-columns:1fr}
@@ -272,7 +266,7 @@
             <span class="token"><span class="ic usdg">G</span>USDG Prime<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg></span>
           </div>
           <div class="big xl num">30,412<span style="font-size:.55em;color:var(--muted-foreground)">.18</span><span class="unit">USDG</span></div>
-          <div class="sub num">≈ $30,409.14 · <span class="pos">+412.18 USDG all time</span></div>
+          <div class="sub num">≈ $30,409.14 · fully withdrawable, no lock-up</div>
 
           <div class="metrics">
             <div>
@@ -284,11 +278,6 @@
               <div class="lbl">earnings</div>
               <div class="v num pos">+412.18 <span style="font-size:12px;color:var(--muted-foreground)">USDG</span></div>
               <div class="s num">+1.37% · since Jun 14</div>
-            </div>
-            <div>
-              <div class="lbl">current APY <span class="hint">i</span></div>
-              <div class="v num">6.21%</div>
-              <div class="s">variable · updates each block</div>
             </div>
           </div>
 
@@ -307,22 +296,9 @@
         <div class="blk apy">
           <div class="head"><span class="lbl">vault APY</span><span class="chip"><span class="dot"></span>variable</span></div>
           <div class="big lg num">6.21<span class="unit">%</span></div>
-          <div class="sub num">7d avg 6.04% · 30d avg 5.88%</div>
-          <svg class="spark" viewBox="0 0 300 56" preserveAspectRatio="none">
-            <defs><linearGradient id="g1" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#567b51" stop-opacity=".18"/><stop offset="1" stop-color="#567b51" stop-opacity="0"/></linearGradient></defs>
-            <path d="M0 40 L20 38 L40 42 L60 34 L80 36 L100 30 L120 33 L140 26 L160 28 L180 22 L200 25 L220 18 L240 21 L260 14 L280 16 L300 10 V56 H0 Z" fill="url(#g1)"/>
-            <path d="M0 40 L20 38 L40 42 L60 34 L80 36 L100 30 L120 33 L140 26 L160 28 L180 22 L200 25 L220 18 L240 21 L260 14 L280 16 L300 10" fill="none" stroke="#567b51" stroke-width="1.6"/>
-          </svg>
+          <div class="sub">USDG Prime · changes with market demand</div>
         </div>
 
-        <!-- Available to withdraw -->
-        <div class="blk avail">
-          <div class="head"><span class="lbl">available to withdraw</span><span class="chip gray">instant</span></div>
-          <div class="big lg num">30,412<span style="font-size:.55em;color:var(--muted-foreground)">.18</span><span class="unit">USDG</span></div>
-          <div class="sub num">100% of position · no lock-up</div>
-          <div class="bar"><i style="width:100%"></i></div>
-          <div class="sub num" style="margin-top:8px">vault liquidity 4.82M USDG of 12.4M</div>
-        </div>
 
         <!-- Vault list -->
         <div class="blk vlist dots">
@@ -386,14 +362,14 @@
       <div class="band band-bottom">
         <div class="block"><a href="#">docs</a><a href="#">twitter</a></div>
         <div class="block"></div>
-        <div class="block" style="justify-content:flex-end"><span class="stat num"><b>16.4M</b> USDG deposited</span><span class="stat num"><b>6.9%</b> avg APY</span></div>
+        <div class="block" style="justify-content:flex-end"><span class="stat num"><b>16.4M</b> USDG deposited</span></div>
       </div>
     </div>
     <ul class="notes">
       <li><i>1</i><b>Position value</b> is the single largest number on the page. Everything else is subordinate to it.</li>
-      <li><i>2</i>Net deposited, earnings and APY sit inside the hero as a second tier, so "how am I doing" is answered without leaving the block.</li>
+      <li><i>2</i>Net deposited and earnings sit inside the hero as a second tier. Position value is also the withdrawable amount, so it is shown once, with a "fully withdrawable" note.</li>
       <li><i>3</i>Deposit is the primary (dark) CTA, withdraw is secondary. Same button language as the swap.</li>
-      <li><i>4</i>Earnings shows a "calculating" chip instead of a number until it can be computed reliably (see screen 03).</li>
+      <li><i>4</i>APY appears exactly once, in its own block. Earnings shows a "calculating" chip until it can be computed reliably (see screen 03).</li>
       <li><i>5</i>Vault list uses the dotted grid from the routes panel; the active vault gets the same selected-green treatment as a selected route.</li>
       <li><i>6</i>Bottom row: transaction history and provenance (Morpho × Steakhouse). Nothing else.</li>
     </ul>
@@ -420,8 +396,6 @@
           <div class="kv" style="margin-top:18px">
             <div>net deposited <b class="num">30,000.00</b></div>
             <div>earnings <b class="num pos">+412.18</b></div>
-            <div>current APY <b class="num">6.21%</b></div>
-            <div>available to withdraw <b class="num">30,412.18</b></div>
           </div>
           <div class="lbl" style="margin-top:auto;padding-top:16px">after this deposit</div>
           <div class="big md num" style="margin-top:8px">35,412.18<span class="unit">USDG</span></div>
@@ -452,7 +426,6 @@
           <div class="details">
             <div><span>deposit details</span><span>0% fee · gas ≈ $0.04</span></div>
             <div><span>projected yearly earnings</span><b class="num pos">+310.50 USDG</b></div>
-            <div><span>APY is variable</span><span>can change with market utilisation</span></div>
           </div>
         </div>
 
@@ -486,7 +459,6 @@
             </div>
           </div>
           <div class="kv" style="margin-top:auto;padding-top:14px;border-top:1px solid rgba(37,38,32,.08)">
-            <div>available liquidity <b class="num">4.82M USDG</b></div>
             <div>powered by <b>Morpho × Steakhouse</b></div>
           </div>
         </div>
@@ -495,7 +467,7 @@
       <div class="band band-bottom">
         <div class="block"><a href="#">docs</a><a href="#">twitter</a></div>
         <div class="block"></div>
-        <div class="block" style="justify-content:flex-end"><span class="stat num"><b>16.4M</b> USDG deposited</span><span class="stat num"><b>6.9%</b> avg APY</span></div>
+        <div class="block" style="justify-content:flex-end"><span class="stat num"><b>16.4M</b> USDG deposited</span></div>
       </div>
     </div>
     <ul class="notes">
@@ -521,15 +493,15 @@
       <div class="bento">
         <div class="blk shell hero">
           <div class="head">
-            <span class="lbl">earn on idle USDG</span>
+            <span class="lbl">your position</span>
             <span class="chip gray">no position yet</span>
           </div>
-          <div class="big xl num">up to 8.05<span class="unit">% APY</span></div>
-          <div class="sub">deposit USDG into a Steakhouse-curated vault on Morpho. Withdraw any time.</div>
+          <div class="big xl num" style="color:var(--muted-foreground)">0<span style="font-size:.55em">.00</span><span class="unit">USDG</span></div>
+          <div class="sub">deposit USDG to start earning. Withdraw any time.</div>
 
           <div class="metrics">
             <div>
-              <div class="lbl">your position</div>
+              <div class="lbl">net deposited</div>
               <div class="v num">0.00 <span style="font-size:12px;color:var(--muted-foreground)">USDG</span></div>
               <div class="s num">wallet balance 125.16 USDG</div>
             </div>
@@ -537,11 +509,6 @@
               <div class="lbl">earnings</div>
               <div class="v"><span class="chip warn"><span class="dot"></span>calculating</span></div>
               <div class="s">shown once reliable</div>
-            </div>
-            <div>
-              <div class="lbl">best vault APY</div>
-              <div class="v num">8.05%</div>
-              <div class="s">USDG High Yield · variable</div>
             </div>
           </div>
 
@@ -555,21 +522,10 @@
 
         <div class="blk apy">
           <div class="head"><span class="lbl">vault APY</span><span class="chip"><span class="dot"></span>variable</span></div>
-          <div class="big lg num">6.21<span class="unit">%</span></div>
-          <div class="sub num">USDG Prime · 7d avg 6.04%</div>
-          <svg class="spark" viewBox="0 0 300 56" preserveAspectRatio="none">
-            <path d="M0 40 L20 38 L40 42 L60 34 L80 36 L100 30 L120 33 L140 26 L160 28 L180 22 L200 25 L220 18 L240 21 L260 14 L280 16 L300 10 V56 H0 Z" fill="url(#g1)"/>
-            <path d="M0 40 L20 38 L40 42 L60 34 L80 36 L100 30 L120 33 L140 26 L160 28 L180 22 L200 25 L220 18 L240 21 L260 14 L280 16 L300 10" fill="none" stroke="#567b51" stroke-width="1.6"/>
-          </svg>
+          <div class="big lg num">up to 8.05<span class="unit">%</span></div>
+          <div class="sub">USDG High Yield · changes with market demand</div>
         </div>
 
-        <div class="blk avail">
-          <div class="head"><span class="lbl">available to withdraw</span><span class="chip gray">instant</span></div>
-          <div class="big lg num" style="color:var(--muted-foreground)">—</div>
-          <div class="sub">nothing deposited yet</div>
-          <div class="bar"><i style="width:0"></i></div>
-          <div class="sub num" style="margin-top:8px">vault liquidity 4.82M USDG of 12.4M</div>
-        </div>
 
         <div class="blk vlist dots">
           <div class="head">
@@ -621,11 +577,11 @@
       <div class="band band-bottom">
         <div class="block"><a href="#">docs</a><a href="#">twitter</a></div>
         <div class="block"></div>
-        <div class="block" style="justify-content:flex-end"><span class="stat num"><b>16.4M</b> USDG deposited</span><span class="stat num"><b>6.9%</b> avg APY</span></div>
+        <div class="block" style="justify-content:flex-end"><span class="stat num"><b>16.4M</b> USDG deposited</span></div>
       </div>
     </div>
     <ul class="notes">
-      <li><i>1</i>With nothing deposited, the best APY takes the hero slot. Same block, same size, so the layout does not jump once a position exists.</li>
+      <li><i>1</i>Same blocks, same sizes as the active state, so nothing jumps once a position exists. The APY block becomes the hook ("up to 8.05%").</li>
       <li><i>2</i>Earnings shows the "calculating" chip: this is the state to use whenever earnings can't be computed reliably, empty or not.</li>
       <li><i>3</i>Withdraw is present but dimmed, keeping the button pair stable across states.</li>
       <li><i>4</i>Vault list is sorted by APY here and gains a "lowest risk" hint on Prime so risk is visible next to yield.</li>
