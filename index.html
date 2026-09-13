@@ -36,7 +36,7 @@
   .num{font-variant-numeric:tabular-nums}
 
   /* ---------- board (wireframe wrapper) ---------- */
-  .board{max-width:1320px;margin:0 auto;padding:40px 24px 96px}
+  .board{max-width:1140px;margin:0 auto;padding:28px 20px 80px}
   .board-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:28px;padding-bottom:16px;border-bottom:1px solid var(--line)}
   .board-head h1{font-size:18px;font-weight:600;margin:0;letter-spacing:-.01em}
   .board-head p{margin:0;color:var(--muted-foreground);font-size:13px}
@@ -52,7 +52,8 @@
   .notes li i{position:absolute;left:0;top:1px;width:16px;height:16px;border-radius:50%;background:var(--foreground);color:var(--background);font:600 10px/16px var(--font);text-align:center;font-style:normal}
 
   /* ---------- app frame (mirrors route.fun block layout) ---------- */
-  .app{border:1px solid var(--line);border-radius:12px;background:var(--background);overflow:hidden;box-shadow:0 30px 60px -40px rgba(37,38,32,.25)}
+  .fit{width:100%;overflow:hidden}
+  .app{width:1240px;transform-origin:top left;border:1px solid var(--line);border-radius:12px;background:var(--background);overflow:hidden;box-shadow:0 30px 60px -40px rgba(37,38,32,.25)}
   .band{display:grid;grid-template-columns:1fr 396px 1fr}
   .band .block{height:82px}
   .block{border:1px solid var(--line);border-radius:8px;position:relative;min-width:0}
@@ -211,21 +212,6 @@
   .s3 .about{grid-column:9/13;grid-row:3}
   .s3 .bento{grid-template-rows:170px 275px 180px}
 
-  @media (max-width:1100px){
-    .band{grid-template-columns:1fr}
-    .band .block{height:auto;min-height:64px}
-    .bento{grid-template-columns:1fr 1fr;grid-template-rows:none !important}
-    .bento .blk{grid-column:auto !important;grid-row:auto !important;min-height:220px}
-    .s1 .hero,.s3 .hero,.s2 .action{grid-column:1/-1 !important}
-    .big.xl{font-size:44px}
-  }
-  @media (max-width:640px){
-    .bento{grid-template-columns:1fr}
-    .metrics{grid-template-columns:1fr}
-    .metrics > div + div{border-left:0;padding-left:0;border-top:1px solid rgba(37,38,32,.08);padding-top:12px;margin-top:12px}
-    .vault{grid-template-columns:auto 1fr auto}
-    .vault .tvl,.vault .vault-cta{display:none}
-  }
 </style>
 </head>
 <body>
@@ -245,7 +231,7 @@
   <!-- ================= SCREEN 1 : OVERVIEW (active position) ================= -->
   <section class="screen s1" id="s1">
     <div class="screen-label"><b>01 · Earn overview</b><span>connected wallet, active position in one vault. This is the home of Earn.</span></div>
-    <div class="app">
+    <div class="fit"><div class="app">
       <div class="band band-top">
         <div class="block">
           <div class="theme">
@@ -364,7 +350,7 @@
         <div class="block"></div>
         <div class="block" style="justify-content:flex-end"><span class="stat num"><b>16.4M</b> USDG deposited</span></div>
       </div>
-    </div>
+    </div></div>
     <ul class="notes">
       <li><i>1</i><b>Position value</b> is the single largest number on the page. Everything else is subordinate to it.</li>
       <li><i>2</i>Net deposited and earnings sit inside the hero as a second tier. Position value is also the withdrawable amount, so it is shown once, with a "fully withdrawable" note.</li>
@@ -378,7 +364,7 @@
   <!-- ================= SCREEN 2 : DEPOSIT FLOW ================= -->
   <section class="screen s2" id="s2">
     <div class="screen-label"><b>02 · Deposit</b><span>after tapping deposit. The action card mirrors the swap card 1:1.</span></div>
-    <div class="app">
+    <div class="fit"><div class="app">
       <div class="band band-top">
         <div class="block"><div class="theme"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></div></div>
         <div class="block" style="justify-content:center">
@@ -469,7 +455,7 @@
         <div class="block"></div>
         <div class="block" style="justify-content:flex-end"><span class="stat num"><b>16.4M</b> USDG deposited</span></div>
       </div>
-    </div>
+    </div></div>
     <ul class="notes">
       <li><i>1</i>The action card reuses the swap card exactly: pay field, flip, receive field, dark CTA, details line. Users already know how to read it.</li>
       <li><i>2</i>Deposit / Withdraw are the Market / Limit pills. Withdraw flips the fields (sUSDG → USDG) and caps Max at available liquidity.</li>
@@ -481,7 +467,7 @@
   <!-- ================= SCREEN 3 : EMPTY STATE ================= -->
   <section class="screen s3" id="s3">
     <div class="screen-label"><b>03 · Empty state</b><span>wallet connected, no position yet. APY becomes the hook; the position block turns into a pitch.</span></div>
-    <div class="app">
+    <div class="fit"><div class="app">
       <div class="band band-top">
         <div class="block"><div class="theme"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></div></div>
         <div class="block" style="justify-content:center">
@@ -579,7 +565,7 @@
         <div class="block"></div>
         <div class="block" style="justify-content:flex-end"><span class="stat num"><b>16.4M</b> USDG deposited</span></div>
       </div>
-    </div>
+    </div></div>
     <ul class="notes">
       <li><i>1</i>Same blocks, same sizes as the active state, so nothing jumps once a position exists. The APY block becomes the hook ("up to 8.05%").</li>
       <li><i>2</i>Earnings shows the "calculating" chip: this is the state to use whenever earnings can't be computed reliably, empty or not.</li>
@@ -588,5 +574,15 @@
     </ul>
   </section>
 </div>
+<script>
+  function fit(){
+    document.querySelectorAll('.fit').forEach(function(w){
+      var app=w.firstElementChild, k=Math.min(0.9, w.clientWidth/1240);
+      app.style.transform='scale('+k+')';
+      w.style.height=(app.offsetHeight*k)+'px';
+    });
+  }
+  window.addEventListener('resize',fit); window.addEventListener('load',fit); fit();
+</script>
 </body>
 </html>
